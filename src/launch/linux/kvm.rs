@@ -150,7 +150,7 @@ pub struct SnpLaunchStart<'a> {
 }
 
 impl<'a> SnpLaunchStart<'a> {
-    pub fn new(start: &'a SnpStart) -> Self {
+    pub fn new(start: &'a snp::Start) -> Self {
         let uaddr = if let Some(addr) = start.ma_uaddr {
             addr.as_ptr() as u64
         } else {
@@ -202,7 +202,7 @@ pub struct SnpLaunchUpdate<'a> {
 }
 
 impl<'a, 'b> SnpLaunchUpdate<'a> {
-    pub fn new(update: &'a SnpUpdate) -> Self {
+    pub fn new(update: &'a snp::Update) -> Self {
         Self {
             start_gfn: update.start_gfn,
             uaddr: update.uaddr.as_ptr() as _,
@@ -244,7 +244,7 @@ pub struct SnpLaunchFinish<'a> {
 }
 
 impl<'a> SnpLaunchFinish<'a> {
-    pub fn new(finish: &'a SnpFinish) -> Self {
+    pub fn new(finish: &'a snp::Finish) -> Self {
         let id_block = if let Some(addr) = finish.id_block {
             addr.as_ptr() as u64
         } else {
